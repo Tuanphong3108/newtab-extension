@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <style>
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100vh; 
+            width: 100vw; 
+            overflow: hidden; 
+            background-color: #f8f9ff; 
+        }
+        iframe { 
+            border: none; 
+            width: 100%; 
+            height: 100%; 
+            display: none; /* Mặc định ẩn để tránh nháy trang trắng */
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="mainFrame" allow="fullscreen; focus-without-user-activation"></iframe>
+    
+    <!-- Tách biệt JS ra file riêng để vượt qua cơ chế bảo mật CSP của Chrome -->
+    <script src="newtab.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline New Tab</title>
+    <style>
+        :root {
+            --primary: #415f91;
+            --on-primary: #ffffff;
+            --surface: #f8f9ff;
+            --on-surface: #191c20;
+            --outline-variant: #c4c6d0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            background-color: var(--surface);
+            color: var(--on-surface);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #clock {
+            font-size: clamp(5rem, 15vw, 8rem);
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -2px;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        #date {
+            font-size: 1.5rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .greeting {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .status-badge {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffe0e0;
+            color: #b3261e;
+            padding: 10px 16px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(179, 38, 30, 0.1);
+        }
+
+        .icon-offline {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="clock">00:00</h1>
+        <div id="date">Đang cập nhật...</div>
+        <div class="greeting">Chào bạn, hôm nay thế nào?</div>
+    </div>
+
+    <div class="status-badge">
+        <svg class="icon-offline" viewBox="0 -960 960 960">
+            <path d="M792-56 671-177q-25 10-51.5 13.5T566-160H280q-100 0-170-70t-70-170q0-85 52-149t134-79l-110-110 56-56 656 656-56 56Zm-226-264Zm171-171-58-58q6-11 9-23.5t3-26.5q0-58-41-99t-99-41q-14 0-26.5 3T511-729l-61-61q27-16 57.5-23t64.5-7q100 0 170 70t70 170q0 34-7 64.5t-23 57.5ZM280-240h311L280-551v311Zm178-360Zm-56-56Z"/>
+        </svg>
+        <span>Chế độ Offline</span>
+    </div>
+
+    <!-- Nhúng file JS riêng để đảm bảo an toàn bảo mật CSP -->
+    <script src="fallback.js"></script>
+</body>
+</html>
