@@ -5,7 +5,7 @@
  */
 
 const frame = document.getElementById('mainFrame');
-const onlineUrl = "https://tuanphong3108.github.io/newtab";
+const onlineUrl = "https://tuanphong3108.github.io/newtab/index.html?extension=true";
 const offlineUrl = "fallback.html";
 
 function initNewTab() {
