@@ -45,3 +45,31 @@ window.addEventListener('online', () => {
 window.addEventListener('offline', () => {
     window.location.replace(offlineUrl);
 });
+
+
+window.addEventListener("message", (event) => {
+    // 1. Logic Tự hủy (Giữ nguyên của bro)
+    if (event.data === "CLOSE_NEW_TAB") {
+        console.log("Phát lệnh tự hủy kép!");
+
+        if (typeof chrome !== 'undefined' && chrome.runtime) {
+            chrome.runtime.sendMessage({ action: "BYE_BYE_TAB" });
+        }
+
+        if (typeof chrome !== 'undefined' && chrome.tabs) {
+            chrome.tabs.getCurrent((tab) => {
+                if (tab) {
+                    chrome.tabs.remove(tab.id);
+                }
+            });
+        }
+    }
+
+    // 2. Logic Mở AI Mode (Thêm mới)
+    if (event.data === "OPEN_AI_MODE") {
+        console.log("Yêu cầu background mở Chế độ AI...");
+        if (typeof chrome !== 'undefined' && chrome.runtime) {
+            chrome.runtime.sendMessage({ action: "OPEN_AI" });
+        }
+    }
+});

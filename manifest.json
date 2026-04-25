@@ -1,15 +1,18 @@
 {
   "manifest_version": 3,
-  "name": "Phong's Custom New Tab",
-  "version": "1.0",
-  "description": "Nhúng giao diện cá nhân vào Tab mới.",
+  "name": "Minecraft New Tab",
+  "version": "1.1",
+  "description": "Nhúng giao diện Minecraft New Tab của Phong vào trang thẻ mới của bạn.",
   "chrome_url_overrides": {
     "newtab": "newtab.html"
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
   },
-  "permissions": []
+  "permissions": ["tabs"]
 }
